@@ -21,8 +21,8 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "migration:create": "typeorm-ts-node-commonjs migration:create",
     "migration:create:init": "typeorm-ts-node-commonjs migration:create ./src/migrations/Initialize",
-    "migration:generate": "typeorm-ts-node-commonjs migration:generate -d ./src/dataSource.ts",
-    "migration:run": "typeorm-ts-node-commonjs migration:run -d ./src/dataSource.ts",
+    "migration:generate": "dotenv -- typeorm-ts-node-commonjs migration:generate -d ./src/dataSource.ts",
+    "migration:run": "dotenv -- typeorm-ts-node-commonjs migration:run -d ./src/dataSource.ts",
     "docker:mysql": "docker run --name mysql -e MYSQL_ROOT_PASSWORD=mysql -e MYSQL_DATABASE=test -d -p 3306:3306 mysql"
   },
   "dependencies": {
@@ -46,6 +46,7 @@
     "@types/supertest": "^2.0.11",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
+    "dotenv-cli": "^6.0.0",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
